@@ -1,0 +1,35 @@
+{
+  "name": "react-redux-actions-hook",
+  "version": "1.0.0",
+  "description": "Factory to create useActions hooks for use with react-redux\\",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tracker1/react-redux-actions-hook.git"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "actions",
+    "hooks"
+  ],
+  "author": "Michael J. Ryan <tracker1@gmail.com> (https://tracker1.dev/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tracker1/react-redux-actions-hook/issues"
+  },
+  "homepage": "https://github.com/tracker1/react-redux-actions-hook#readme",
+  "peerDependencies": {
+    "react": "^16.8.3",
+    "redux": "^2.0.0 || ^3.0.0 || ^4.0.0-0",
+    "react-redux": "^7.1.0"
+  },
+  "devDependencies": {
+    "rollup": "^1.21.4"
+  },
+  "scripts": {
+    "test": "echo \"No test specified\" && exit 1",
+    "build": "rollup src/index.js --file lib/index.js --format cjs",
+    "prepublish": "npm run build"
+  }
+}

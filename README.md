@@ -1,6 +1,6 @@
 # react-redux-actions-hook
 
-## `useActions()`
+## `useActions(actions, dependencies)`
 
 Hook to use actions bound to dispatch.
 
@@ -22,7 +22,7 @@ export default const MyComponent = () => {
 }
 ```
 
-## `createActionsHook()`
+## `createActionsHook(actions) => Function useActions(dependencies)`
 
 Factory to create useActions methods for use in action creator modules.
 

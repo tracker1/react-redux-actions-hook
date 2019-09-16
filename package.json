@@ -30,7 +30,7 @@
   },
   "scripts": {
     "test": "echo \"No test specified\" && exit 1",
-    "build": "rollup src/index.js --file lib/index.js --format cjs",
+    "build": "rollup -c",
     "prepublish": "npm run build",
     "publish-major": "npm version major && git push origin master && git push --tags",
     "publish-minor": "npm version minor && git push origin master && git push --tags",

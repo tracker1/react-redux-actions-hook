@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Factory to create useActions hooks for use with react-redux\\",
   "main": "lib/index.js",
+  "module": "src/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tracker1/react-redux-actions-hook.git"

@@ -1,11 +1,11 @@
 # react-redux-actions-hook
 
-## `useActions(actions, dependencies)`
+## `useActions(actions, dependencies = [])`
 
 Hook to use actions bound to dispatch.
 
 ```js
-const actions : Object = useActions(actions: Object, dependencies : Array);
+const actions : Object = useActions(actions: Object, dependencies : Array = []);
 ```
 
 #### Example
@@ -15,19 +15,19 @@ import { useActions } from 'react-redux-actions-hook'
 import * as rawActions from './actions'
 
 export default const MyComponent = () => {
-  const actions = useActions(rawActions, []);
+  const actions = useActions(rawActions);
   return (
     <button onClick={actions.goHome}>Home</button>
   )
 }
 ```
 
-## `createActionsHook(actions) => Function useActions(dependencies)`
+## `createActionsHook(actions) => Function useActions([dependencies])`
 
 Factory to create useActions methods for use in action creator modules.
 
 ```js
-const useActions : Function = createActionsHook(actions : Object);
+const useActions : Function = createActionsHook(actions : Object = []);
 ```
 
 This hook factory can be used in with your action creators in order to expose a `useActions()` hook that can be used in your components.
@@ -49,10 +49,8 @@ export const useActions = createActionsHook({ doSomething })
 import { useSelector } from 'react-redux'
 import { useActions } from './actions'
  
-export const AdminButton = ({ key, text }) => {
-  const user = useSelector(({ user }) => user)
-  const action = useActions([ key, user ])
-  if (!user.isAdmin) return null
+export const MyComponent = ({ id, text }) => {
+  const action = useActions();
   return (
     <button
       class="admin-button"

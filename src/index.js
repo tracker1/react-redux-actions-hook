@@ -24,10 +24,8 @@ import { useDispatch } from "react-redux";
  * import { useSelector } from 'react-redux'
  * import { useActions } from './actions'
  *
- * export const AdminButton = ({ key, text }) => {
- *   const user = useSelector(({ user }) => user)
- *   const action = useActions([ key, user ])
- *   if (!user.isAdmin) return null
+ * export const MyComponent = ({ id, text }) => {
+ *   const action = useActions()
  *   return (
  *     <button value={id} onClick={action.doSomething}>
  *       {text}
@@ -52,6 +50,10 @@ export function createActionsHook(actions) {
 
 /**
  * useActions hook bound to the context's dispatch
+ *
+ * @param {Object} actions object to bind to dispatch.
+ * @param {Array<Function>} dependencies optional array of dependencies.
+ * @returns {Object} dispatch bound functions matching actions parameter
  */
 export function useActions(actions, deps) {
   return createActionsHook(actions)(deps);

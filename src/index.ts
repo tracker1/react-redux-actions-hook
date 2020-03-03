@@ -4,10 +4,9 @@ import { useDispatch } from "react-redux";
 
 /**
  * Hook factory, which creates a `useActions` hook bound to dispatch.
- *
- * @param {Object} actions object to bind to dispatch.
- * @returns {Function} A `useActions` hook bound to dispatch.
- *
+ * 
+ * @param actions object with actions to bind to dispatch.
+ * 
  * @example
  * // actions.js
  * import { bindActionCreators } from 'react-redux'
@@ -33,28 +32,27 @@ import { useDispatch } from "react-redux";
  *   )
  * }
  */
-export function createActionsHook(actions) {
-  return function useActions(deps) {
+export function createActionsHook<T>(actions: T) {
+  return function useActions(deps : any[]) : T {
     const dispatch = useDispatch();
     return useMemo(
       () => {
         if (Array.isArray(actions)) {
           return actions.map(a => bindActionCreators(a, dispatch));
         }
-        return bindActionCreators(actions, dispatch);
+        return bindActionCreators(actions as any, dispatch);
       },
       deps ? [dispatch, ...deps] : [dispatch]
-    );
+    ) as T;
   };
 }
 
 /**
  * useActions hook bound to the context's dispatch
- *
- * @param {Object} actions object to bind to dispatch.
- * @param {Array<Function>} dependencies optional array of dependencies.
- * @returns {Object} dispatch bound functions matching actions parameter
+ * 
+ * @param actions object with actions to bind to dispatch.
+ * @param deps optional array of dependencies.
  */
-export function useActions(actions, deps) {
+export function useActions<T>(actions : T, deps : any[]) : T {
   return createActionsHook(actions)(deps);
 }

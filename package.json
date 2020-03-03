@@ -20,9 +20,9 @@
   },
   "homepage": "https://github.com/tracker1/react-redux-actions-hook#readme",
   "peerDependencies": {
-    "react": "^16.8.3",
-    "redux": "^2.0.0 || ^3.0.0 || ^4.0.0-0",
-    "react-redux": "^7.1.0"
+    "react": ">= 16.8.3",
+    "redux": ">= 2.0.0",
+    "react-redux": ">= 7.1.0"
   },
   "devDependencies": {
     "@types/react": "^16.9.23",

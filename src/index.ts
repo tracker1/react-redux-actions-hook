@@ -13,7 +13,7 @@ import { useDispatch } from "react-redux";
  *
  * export const doSomething = e => ({
  *   type: 'sometype',
- *   e.target.value,
+ *   payload: e.target.value,
  * })
  *
  * export const useActions = createActionsHook({ doSomething })

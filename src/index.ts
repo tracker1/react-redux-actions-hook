@@ -33,7 +33,7 @@ import { useDispatch } from "react-redux";
  * }
  */
 export function createActionsHook<T>(actions: T) {
-  return function useActions(deps: any[]): T {
+  return function useActions(deps: any[] = []): T {
     const dispatch = useDispatch();
     return useMemo(
       () => {
